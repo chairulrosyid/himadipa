@@ -1,0 +1,393 @@
+@use "sass:map";
+// Fonts
+$himadipa-head: 'Russo One',
+sans-serif;
+$himadipa-fonts: 'Assistant',
+sans-serif;
+// Colors
+$himadipa-colors: ( "himadipa-primary": #070A13, "himadipa-secondary": #8E95A9, "himadipa-third": #F1D00A, "himadipa-fourth": #ffff, );
+
+/* Control */
+
+html {
+    overflow-x: hidden;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: map.get($himadipa-colors, "himadipa-secondary");
+}
+
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(253, 253, 253, 0.781);
+}
+
+body {
+    font-family: $himadipa-fonts;
+}
+
+header,
+.popular-posts,
+.popular-events,
+.sponsorships,
+.media-partners,
+.interest,
+.subscribe {
+    padding-bottom: 70px;
+}
+
+h2 {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+// Navigasi
+nav {
+    margin-bottom: 70px;
+}
+
+.navbar {
+    /* Toggler */
+    &-toggler span {
+        display: block;
+        background-color: map.get($himadipa-colors, 'himadipa-primary');
+        height: 3px;
+        width: 25px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        position: relative;
+        left: 0;
+        opacity: 1;
+        transition: all 0.35s ease-out;
+        transform-origin: center left;
+    }
+    &-toggler span:nth-child(1) {
+        margin-top: 0.3em;
+    }
+    &-toggler:not(.collapsed) span:nth-child(1) {
+        transform: translate(15%, -33%) rotate(45deg);
+    }
+    &-toggler:not(.collapsed) span:nth-child(2) {
+        opacity: 0;
+    }
+    &-toggler:not(.collapsed) span:nth-child(3) {
+        transform: translate(15%, 33%) rotate(-45deg);
+    }
+    &-toggler span:nth-child(1) {
+        transform: translate(0%, 0%) rotate(0deg);
+    }
+    &-toggler span:nth-child(2) {
+        opacity: 1;
+    }
+    &-toggler span:nth-child(3) {
+        transform: translate(0%, 0%) rotate(0deg);
+    }
+    &-brand {
+        width: 10%;
+    }
+}
+
+.me-auto {
+    margin-left: auto!important;
+}
+
+// Jumbotron
+header {
+    padding-top: 10px;
+    background: rgb(7, 10, 19);
+    background: -moz-linear-gradient(0deg, rgba(7, 10, 19, 1) 21%, rgba(142, 149, 169, 1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(7, 10, 19, 1) 21%, rgba(142, 149, 169, 1) 100%);
+    background: linear-gradient(0deg, rgba(7, 10, 19, 1) 21%, rgba(142, 149, 169, 1) 100%);
+    h1 {
+        font-family: $himadipa-head;
+        color: map.get($himadipa-colors, "himadipa-fourth");
+        font-size: 370%;
+        margin-bottom: 140px;
+    }
+    // Languange
+    .switch-translate {
+        .btn-switch {
+            background-color: map.get($himadipa-colors, "himadipa-fourth");
+            color: map.get($himadipa-colors, "himadipa-primary");
+        }
+        .btn-indo {
+            margin-left: -3px;
+            margin-right: 10px;
+        }
+        .btn-switch:hover,
+        .btn-switch.active {
+            background-color: map.get($himadipa-colors, "himadipa-primary");
+            color: map.get($himadipa-colors, "himadipa-fourth");
+        }
+    }
+    // Login
+    .btn-login {
+        background-color: map.get($himadipa-colors, "himadipa-third");
+        color: map.get($himadipa-colors, "himadipa-fourth");
+        padding-left: 20px;
+        padding-right: 20px;
+        transition: background 0.8s;
+        &:hover {
+            background: map.get($himadipa-colors, "himadipa-third") radial-gradient(circle, transparent 1%, #ffff 1%) center/15000%;
+        }
+        &:active {
+            background-color: map.get($himadipa-colors, "himadipa-fourth");
+            background-size: 100%;
+            transition: background 0s;
+        }
+    }
+}
+
+// Posts
+.popular-posts {
+    background-color: map.get($himadipa-colors, "himadipa-primary");
+    padding-top: 70px;
+    h2 {
+        color: map.get($himadipa-colors, "himadipa-fourth");
+    }
+    .nav {
+        flex-wrap: nowrap;
+        &-item {
+            padding-left: 7px;
+        }
+    }
+    .btn-selected {
+        border: 2px solid map-get($himadipa-colors, "himadipa-fourth");
+        font-weight: bold;
+    }
+    .btn-selected.active {
+        background-color: map-get($himadipa-colors, "himadipa-third");
+        border: 2px solid map-get($himadipa-colors, "himadipa-third");
+        color: map.get($himadipa-colors, "himadipa-fourth");
+    }
+    .card-post {
+        text-align: justify;
+        border: none;
+        border-radius: 10px;
+        .post-content {
+            padding: 10px 15px 10px 15px;
+            .btn-detail-post {
+                color: map.get($himadipa-colors, "himadipa-primary");
+                background-color: map.get($himadipa-colors, "himadipa-third");
+                transition: all 0.5s;
+                & span {
+                    transition: 0.5s;
+                }
+                & span:after {
+                    content: '\00bb';
+                    opacity: 0;
+                    right: -20px;
+                    transition: 0.5s;
+                }
+                &:hover span:after {
+                    opacity: 1;
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+
+// Events
+.popular-events {
+    h2 {
+        padding-top: 70px;
+    }
+    .event-content {
+        color: map.get($himadipa-colors, "himadipa-fourth");
+        text-align: justify;
+        background-color: map.get($himadipa-colors, "himadipa-secondary");
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        padding: 10px 15px 10px 15px;
+        .btn-detail-event {
+            color: map.get($himadipa-colors, "himadipa-fourth");
+            background-color: map.get($himadipa-colors, "himadipa-primary");
+            transition: all 0.5s;
+            & span {
+                transition: 0.5s;
+            }
+            & span:after {
+                content: '\00bb';
+                opacity: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+            &:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+        }
+    }
+}
+
+
+/*Swiper*/
+
+.mySwiper {
+    width: 100%;
+    height: 100%;
+    .swiper-slide {
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: left;
+        justify-content: left;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .swiper-slide {
+        width: 60%;
+    }
+    .swiper-slide:nth-child(2n) {
+        width: 40%;
+    }
+    .swiper-slide:nth-child(3n) {
+        width: 20%;
+    }
+}
+
+// Sponsorship
+.sponsorships {
+    background-color: map.get($himadipa-colors, "himadipa-primary");
+    h2 {
+        padding-top: 70px;
+    }
+}
+
+// Media Partner
+.media-partners {
+    padding-top: 70px;
+}
+
+// interesting
+.btn-interest {
+    background-color: map.get($himadipa-colors, "himadipa-primary");
+    padding: 10px 0;
+    transition: background 0.8s;
+    &:hover {
+        background: map.get($himadipa-colors, "himadipa-primary") radial-gradient(circle, transparent 1%, map.get($himadipa-colors, "himadipa-secondary") 1%) center/15000%;
+    }
+    &:active {
+        background-color: map.get($himadipa-colors, "himadipa-fourth");
+        background-size: 100%;
+        transition: background 0s;
+    }
+}
+
+// 
+.subscribe {
+    padding-top: 70px;
+    .container {
+        background-color: map.get($himadipa-colors, "himadipa-primary");
+        border-radius: 20px;
+        h2 {
+            padding-top: 70px;
+        }
+        .content-subscribe {
+            margin-left: 40px;
+            margin-right: 40px;
+            padding-bottom: 70px;
+            .email-subscribe {
+                border: 0 solid map.get($himadipa-colors, "himadipa-fourth");
+                border-radius: 20px;
+                padding: 10px 0;
+            }
+            .btn-subscribe {
+                background-color: map.get($himadipa-colors, "himadipa-third");
+                border-radius: 20px;
+                padding: 0 40px;
+                transition: background 0.8s;
+                &:hover {
+                    background: map.get($himadipa-colors, "himadipa-third") radial-gradient(circle, transparent 1%, map.get($himadipa-colors, "himadipa-secondary") 1%) center/15000%;
+                }
+                &:active {
+                    background-color: map.get($himadipa-colors, "himadipa-fourth");
+                    background-size: 100%;
+                    transition: background 0s;
+                }
+            }
+        }
+    }
+}
+
+// Footer
+footer {
+    background-color: map.get($himadipa-colors, "himadipa-primary");
+    padding: 30px 0;
+    h5 {
+        border-bottom: 2px solid map.get($himadipa-colors, "himadipa-third");
+        font-weight: bold;
+    }
+    h6 {
+        text-indent: 7px;
+    }
+    hr {
+        border: 3px solid map.get($himadipa-colors, "himadipa-third");
+    }
+    a {
+        text-decoration: none;
+        color: map.get($himadipa-colors, "himadipa-fourth");
+        &:hover {
+            color: map.get($himadipa-colors, "himadipa-third");
+        }
+    }
+}
+
+// Phone & Tablet Mode
+@media (max-width: 767.98px) {
+    h2 {
+        font-size: 250%;
+    }
+    header {
+        h1 {
+            font-size: 300%;
+        }
+        .navbar {
+            &-brand {
+                width: 20%;
+            }
+            .nav-item {
+                display: block;
+                text-align: center;
+            }
+            .btn-login {
+                display: block;
+            }
+        }
+        .switch-translate {
+            .btn-switch {
+                display: block;
+            }
+            .btn-english {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            .btn-indo {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                margin: 0 0 20px 0;
+            }
+        }
+    }
+    .nav-pills {
+        margin-bottom: 30px;
+    }
+    footer {
+        h5 {
+            padding-top: 10px;
+            width: 70%;
+        }
+    }
+}
