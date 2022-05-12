@@ -260,7 +260,10 @@ header {
 
 // Sponsorship
 .sponsorships {
-    background-color: map.get($himadipa-colors, "himadipa-primary");
+    // background-color: map.get($himadipa-colors, "himadipa-primary");
+    background-image: url("../Assets/Sponsorship.png");
+    background-size: cover;
+    width: 100%;
     h2 {
         padding-top: 70px;
     }
@@ -268,7 +271,10 @@ header {
 
 // Media Partner
 .media-partners {
+    background-image: url("../Assets/Media Partners.png");
+    background-size: cover;
     padding-top: 70px;
+    padding-bottom: 200px;
 }
 
 // interesting
@@ -326,6 +332,12 @@ header {
 footer {
     background-color: map.get($himadipa-colors, "himadipa-primary");
     padding: 30px 0;
+    h3 {
+        font-size: 200%;
+    }
+    h4 {
+        font-size: 140%;
+    }
     h5 {
         border-bottom: 2px solid map.get($himadipa-colors, "himadipa-third");
         font-weight: bold;
@@ -334,7 +346,9 @@ footer {
         text-indent: 7px;
     }
     hr {
-        border: 3px solid map.get($himadipa-colors, "himadipa-third");
+        border: none;
+        padding: 2px 0;
+        background-color: map.get($himadipa-colors, "himadipa-third");
     }
     a {
         text-decoration: none;
@@ -347,6 +361,18 @@ footer {
 
 // Phone & Tablet Mode
 @media (max-width: 767.98px) {
+    .col-sm-2 {
+        width: 20%;
+    }
+    .col-sm-4 {
+        width: 33.3%;
+    }
+    .col-sm-6 {
+        width: 50%;
+    }
+    .col-sm-10 {
+        width: 80%;
+    }
     h2 {
         font-size: 250%;
     }
@@ -384,10 +410,36 @@ footer {
     .nav-pills {
         margin-bottom: 30px;
     }
+    .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+        border-radius: 10px;
+    }
+    .subscribe .container .content-subscribe {
+        margin: 0;
+        .input-group {
+            flex-direction: column;
+            .email-subscribe {
+                width: 100%;
+                border-radius: 10px;
+                margin-bottom: 5px;
+            }
+            .btn-subscribe {
+                padding: 5px;
+                border-radius: 10px;
+            }
+        }
+    }
     footer {
+        h3 {
+            padding-top: 15px;
+            font-size: calc(2rem + .6vw);
+        }
+        h4 {
+            padding-top: 5px;
+            text-align: center;
+        }
         h5 {
             padding-top: 10px;
-            width: 70%;
+            width: 75%;
         }
     }
 }
